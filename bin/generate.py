@@ -68,6 +68,8 @@ if __name__=='__main__':
      help="adds the given prefix to the FHIR resource IDs (default=none)")
   parser.add_argument('--base-url',dest='baseURL', metavar='base_url', nargs='?', const='',
      help="uses the supplied URL base to generate absolute resource references (default='')")
+  parser.add_argument('--tag',dest='tag', metavar='tag', nargs='?', const='',
+     help="tags all resources with the given value (default='')")
 
   args = parser.parse_args()
 
@@ -96,7 +98,7 @@ if __name__=='__main__':
     else:
         prefix = None	 
     for pid in Patient.mpi:
-      fhir.FHIRSamplePatient(pid, path, baseURL).writePatientData(prefix)
+      fhir.FHIRSamplePatient(pid, path, baseURL, args.tag).writePatientData(prefix)
       # Show progress with '.' characters
       sys.stdout.flush()
     parser.exit(0,"\nDone writing %d patient FHIR files!\n"%len(Patient.mpi))

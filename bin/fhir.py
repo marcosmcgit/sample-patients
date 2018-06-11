@@ -57,9 +57,10 @@ def getVital(v, vt, encounter_id):
     }
 
 class FHIRSamplePatient(object):
-  def __init__(self, pid, path, base_url=""):
+  def __init__(self, pid, path, base_url="", tag=""):
     self.path = path
     self.pid = pid
+    self.tag = tag
 
     if len(base_url) > 0 and not base_url.endswith("/"):
         base_url += "/"
@@ -75,6 +76,7 @@ class FHIRSamplePatient(object):
 
     now = datetime.datetime.now().isoformat()
     base_url = self.base_url
+    tag = self.tag
 
     if self.pid == '99912345':
         vpatient = generate_patient()
@@ -108,6 +110,7 @@ class FHIRSamplePatient(object):
     else:
     	id = "Patient/%s-%s"%(prefix,self.pid)
     pid = id
+    
     template = template_env.get_template('patient.xml')
     print >>pfile, template.render(dict(globals(), **locals()))
 

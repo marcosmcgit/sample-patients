@@ -1,6 +1,14 @@
   {% extends "entry.xml" %}
   {% block content %}
   <Binary>
+    {%- if tag %}
+    <meta>
+        <tag>
+            <system value="https://smarthealthit.org/tags"/>
+            <code value="{{tag}}"/>
+        </tag>
+    </meta>
+    {%- endif %}
    {{resource_id}}
    <contentType value="{{b.mime_type}}"/>
    <content value="{{b.content}}"/>

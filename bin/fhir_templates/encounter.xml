@@ -1,7 +1,15 @@
   {% extends "entry.xml" %}
   {% block content %}
     <Encounter>
-  {{resource_id}}
+      {%- if tag %}
+      <meta>
+          <tag>
+              <system value="https://smarthealthit.org/tags"/>
+              <code value="{{tag}}"/>
+          </tag>
+      </meta>
+      {%- endif %}
+      {{resource_id}}
       <text>
         <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">{{v.start_date}}: {{v.encounter_type}} encounter</div>

@@ -1,6 +1,14 @@
   {% extends "entry.xml" %}
   {% block content %}
   <Observation>
+    {%- if tag %}
+    <meta>
+        <tag>
+            <system value="https://smarthealthit.org/tags"/>
+            <code value="{{tag}}"/>
+        </tag>
+    </meta>
+    {%- endif %}
     {{resource_id}}
     {%- if bp.position %}
     <extension url="http://fhir-registry.smarthealthit.org/StructureDefinition/vital-signs#position">

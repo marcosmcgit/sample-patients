@@ -1,6 +1,14 @@
 {%- extends "entry.xml" %}
 {%- block content %}
 <MedicationOrder>
+  {%- if tag %}
+  <meta>
+      <tag>
+          <system value="https://smarthealthit.org/tags"/>
+          <code value="{{tag}}"/>
+      </tag>
+  </meta>
+  {%- endif %}
   {{resource_id}}
   <text>
     <status value="generated"/>
