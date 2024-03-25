@@ -31,3 +31,22 @@ And a `summary.txt` file can be added to `generated-data` by running:
 A good way to look at a single patient, with patient ID, PID, is:
 
     python generate.py --summary PID
+
+---
+
+## To run on Ubuntu 22.04:
+
+### Install python2
+
+```
+sudo apt install python2
+```
+
+### Install pip2
+
+[!WARNING]  
+Installing pip2 through below method will remove the package `python3-pip`. After that, you can reinstall pip3, but this will remove pip2.
+
+```
+sudo apt install python-pip
+```
