@@ -44,8 +44,8 @@ sudo apt install python2
 
 ### Install pip2
 
-[!WARNING]  
-Installing pip2 through below method will remove the package `python3-pip`. After that, you can reinstall pip3, but this will remove pip2.
+> [!WARNING]  
+> Installing pip2 through below method will remove the package `python3-pip`. After that, you can reinstall pip3, but this will remove pip2.
 
 ```
 sudo apt install python-pip
